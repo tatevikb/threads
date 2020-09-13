@@ -9,11 +9,9 @@ public class Main {
             for (int i = 0; i < threadNum; i++) {
                 executorService.submit(new Counter(i));
             }
-            executorService.shutdown();
-            //for( int i = 0; i < threadNum; i++ ) {
-            //    threads[i].join();
-            //}
             Thread.sleep(60 * 1000);
+            Counter.stop();
+            executorService.shutdown();
         }
     }
 }
